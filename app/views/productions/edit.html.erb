@@ -1,0 +1,8 @@
+<h1>Editing <%= @production.name %></h1>
+
+<%= render :partial => 'form', :locals => { :readonly => false } %>
+
+<div class="production-links clear">
+  <%= link_to 'Show', @production %> |
+  <%= link_to 'Back', productions_path %>
+</div>

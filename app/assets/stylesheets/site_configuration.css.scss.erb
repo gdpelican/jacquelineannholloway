@@ -1,0 +1,24 @@
+form.site_configuration {
+  
+  	text-align: center;
+	li { list-style-type: none; }
+	.ui-button, .file { width: 12em; }
+  	.config-colors { 
+  	 	li, input { display: inline; }
+    	input {
+    		width: 2em;
+    		height: 2em;
+    		padding: 0;
+    		margin: 0;
+		}
+	}
+}  
+
+.header form.site_configuration { display: none; }
+
+#current form.site_configuration {
+	li, label, input { float: left; }
+	label { line-height: 2em; }
+	input[type=submit] { width: 4em; }
+	input[type=number] { width: 3em; }
+}

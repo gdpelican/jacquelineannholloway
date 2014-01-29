@@ -1,0 +1,11 @@
+<%= link_to font_icon('pencil') + ' Edit Theme', 'javascript:;', class: 'edit-config-trigger ui-button' %>
+<%= semantic_form_for @config, url: site_configuration_path do |f| %>
+  <div>Profile Picture</div>
+  <%= f.input :profile_picture, :as => :file, :label => false %>
+  <div class="config-colors">
+  	<div>Color Scheme</div>
+  	<%= f.input :site_primary, :label => false, :input_html => { type: :color } %>
+  	<%= f.input :site_foreground, :label => false, :input_html => { type: :color } %>
+  </div>
+  <%= f.submit value: 'Update Theme', class: 'upload-button ui-button' %>
+<% end %>

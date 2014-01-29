@@ -1,0 +1,3 @@
+$('#event-slideout').html('<%= escape_javascript(render( partial: 'events/show', locals: {event: @event} )) %>').show()
+	.find('.production-option').first().click();
+EventSlideOut.resetMap();

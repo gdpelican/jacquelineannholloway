@@ -1,0 +1,13 @@
+<div class="preview">
+  <div class="production-div">
+    <div class="production-name foreground background"><%= production.name.upcase %></div>
+    <div class="production-left">
+      <div class="production-picture"><%= image_tag production.picture.url(:profile) %></div>
+    </div>
+    <div class="production-right"> 
+      <div class="production-dates"><%= production_timespan(production) %></div>
+      <div class="production-description primary"><%= production.blurb %></div>
+    </div>
+    <div class="production-clear"></div>
+  </div>
+</div>

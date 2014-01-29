@@ -1,0 +1,11 @@
+<%= semantic_form_for @intro_blurb, html: { class: 'admin-form' } do |f| %>
+	<div class="welcome-row">
+		<div class="welcome-cell">
+			<%= image_tag f.object.picture.url(:tiny), class: 'welcome-circle border' %>
+			<%= f.input :text, as: :text, label: false %>
+		</div>
+	</div>
+	<%= f.input :picture, label: false %>
+	
+    <%= f.submit value: 'Submit' %>
+<% end %>

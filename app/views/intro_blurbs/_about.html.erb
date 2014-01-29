@@ -1,0 +1,8 @@
+<% blurbs.each do |blurb| %>
+	<%= render layout: 'intro_blurbs/show', locals: { id: blurb.id } do %>
+		<%= image_tag blurb.picture.url(:tiny), :class => 'welcome-circle border' %>
+		<%= content_tag :p, blurb.text %>
+	<% end %>
+<% end %>
+
+<%= link_to(font_icon('asterisk') + '  New Intro blurb', new_intro_blurb_path, class: 'new-blurb-trigger ui-button faded-medium') if @authed %>

@@ -1,0 +1,20 @@
+<div id="welcome" class="about-block">
+	<h1>Welcome!</h1>
+	<%= render partial: 'intro_blurbs/about', locals: { blurbs: @intro_blurbs } %>
+</div>
+
+<div id="current" class="about-block">
+	<h1>What I'm up to now</h1>
+	<%= render partial: 'intro_blurbs/current', locals: { blurbs: @upcoming } %>
+	<% if @upcoming.empty? %>
+		<p>
+			Check back soon for info about my next project, or read what's going on at 
+			<%= link_to 'my blog', 'javascript:;', class: 'slide-anchor', rel: 3 %>
+		</p>
+	<% end %>
+</div>
+
+<div id="getInTouch" class="about-block">
+	<h1>Get in Touch</h1>
+	<span>Follow me on <%= link_to @facebook.name, @facebook.link, :target => '_blank' %> and <%= link_to @twitter.name, @twitter.link, :target => '_blank' %>, or <%= link_to 'Join my mailing list', @email.link, :target => '_blank' %></span>
+</div>

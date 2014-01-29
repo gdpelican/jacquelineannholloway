@@ -1,0 +1,21 @@
+<h1>Listing background pictures</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @backgrounds.each do |background| %>
+  <tr>
+  	<td><div><%= background.slide_title %></div><%= image_tag background.picture.url(:tiny) %></td>
+    <td><%= link_to 'Edit', edit_background_path(background) %></td>
+    <td><%= link_to 'Destroy', background, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Picture', new_background_path %>

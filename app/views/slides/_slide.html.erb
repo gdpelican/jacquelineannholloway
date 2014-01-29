@@ -1,0 +1,8 @@
+<div class="slide" id="<%= slide.title %>">
+  <div class="slide-image">  
+  	<%= image_tag slide.background.picture.url, alt: slide.background.picture_alt if slide.background %>
+  </div>
+  <div class="slide-content">
+    <%= render partial: 'pages/' + slide.view.downcase, locals: @locals %>
+  </div>  
+</div>

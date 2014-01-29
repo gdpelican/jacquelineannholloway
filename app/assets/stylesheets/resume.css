@@ -1,0 +1,266 @@
+
+#resume {
+    background-color: rgba(255, 255, 255, .7);
+    box-shadow: 0 0 3px #666;
+    border-radius: 1em;
+    padding: 0 1.5em 1em 1.5em;
+    line-height: normal;
+    margin-bottom: 10em;
+    position: relative;
+}
+
+#resume .resume:first { display: block; }
+#resume .resume { 
+	display: none;
+}
+
+#resume .resume-menu {
+	list-style-type: none;
+	position: absolute;
+	top: -2.5em;
+}
+
+#resume .destroyed {
+	font-size: .85em;
+	text-align: center;
+	padding-top: 1em;
+	font-style: italic;
+}
+
+#resume .resume-menu li {
+	background-color: rgba(255, 255, 255, .7);
+	border-radius: 1em 1em 0 0;
+	float: left;
+	box-shadow: inset 0px 0px 5px;
+	padding: .5em;
+	margin: 0 .25em;
+	
+	height: 2.5em;
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box;
+}
+
+#resume .resume-menu .selected {
+	box-shadow: none;
+	font-weight: bold;
+}
+
+#resume .resume-menu .inactive {
+	opacity: .5;
+	font-style: italic;
+}
+
+#resume .new-resume-link .new-resume-form {
+	margin-top: -.25em;
+	display: none;
+}
+
+#resume .new-resume-link .new-resume-form input {
+	float: left;
+}
+
+#resume .new-resume-link .new-resume-form input[type=text] {
+	border-radius: .5em 0 0 0;
+	width: 10em;
+}
+
+#resume .new-resume-link .new-resume-form input[type=submit] {
+	padding: .25em;
+	margin: .15em;
+}
+
+.deleted-resume {
+	text-align: center;
+	width: 100%;
+	display: inline-block;
+}
+
+#resume .section {
+    position: relative;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1.5em;
+    border-radius: .5em .5em .5em 0;
+}
+
+#resume .a:hover {
+    margin-top: -1.5em;
+    background: #EEE;
+}
+
+#resume .line {
+    position: relative;
+}
+
+#resume .authed-section .line {
+    margin-right: 20px;
+}
+
+#resume .item {
+    display: inline-block;
+    position: relative;
+    margin-right: -5px;
+    vertical-align: top;
+}
+
+#resume .item-wrapper input {
+	display: inline-block;
+}
+
+#resume .edit-trigger {
+    font-size: 12px !important;
+}
+
+#resume .edit-options-panel {
+	height: 2.25em;
+    text-align: center;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration:none;
+}
+
+#resume .resume-options {
+	list-style-type: none;
+	display: inline-block;
+}
+
+#resume .resume-options li {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#resume .edit-selection
+{
+    background: rgba(220, 220, 220, .5);
+}
+
+#resume .line .edit-selection {
+    background: #EEE;
+    box-shadow: inset 0 0 4px #CCE;
+}
+
+#resume .edit-section {
+    text-align: right;
+    height: 1.5em;
+    padding-right: .5em;
+    border-radius: .5em .5em 0 0;
+}
+
+#resume .edit-line {
+    width: 3em;
+    text-align: right;
+    position: absolute;
+    top: 0;
+    right: -1.5em;
+    padding: .25em;
+    z-index: 25;
+}
+
+#resume .edit-item {
+    border: 1px solid #CCC;
+    background: #EFEFEF;
+    padding: 7px;
+    margin: -7px -11px;
+    z-index: 5;
+    outline: 0;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px #CCC;
+}
+
+#resume .style-button {
+	padding: .25em .5em;
+}
+
+#resume .selected { background: rgba(200, 200, 200, .5); }
+
+#resume .selected>.edit-options-panel {
+    display: block !important;
+}
+
+#resume .edit-span {
+    padding: 0 .25em;
+}
+
+#resume .trigger {
+    padding: .25em .5em;
+    border: 1px solid #CCC;
+}
+
+#resume .trigger i {
+    font-size: 1.25em;
+}
+
+#resume .option-selected {
+    background: #BBB;
+}
+
+.bold, .bold .item-wrapper input { font-weight: bold; }
+.italic, .italic .item-wrapper input { font-style: italic; }
+.underline .item, .underline .item-wrapper input { text-decoration: underline; }
+
+.align-left, .align-left .item-wrapper input { text-align: left; }
+.align-right, .align-right .item-wrapper input { text-align: right; }
+.align-center, .align-center .item-wrapper input { text-align: center; }
+
+.font-9, .font-9 .item-wrapper, .font-9 .item-wrapper input { font-size: 9px; }
+.font-10, .font-10 .item-wrapper, .font-10 .item-wrapper input { font-size: 10px; }
+.font-11, .font-11 .item-wrapper, .font-11 .item-wrapper input { font-size: 11px; }
+.font-12, .font-12 .item-wrapper, .font-12 .item-wrapper input { font-size: 12px; }
+.font-14, .font-14 .item-wrapper, .font-14 .item-wrapper input { font-size: 13px; }
+.font-16, .font-16 .item-wrapper, .font-16 .item-wrapper input { font-size: 16px; }
+.font-18, .font-18 .item-wrapper, .font-18 .item-wrapper input { font-size: 18px; }
+.font-20, .font-20 .item-wrapper, .font-20 .item-wrapper input { font-size: 20px; }
+.font-24, .font-24 .item-wrapper, .font-24 .item-wrapper input { font-size: 24px; }
+.font-30, .font-30 .item-wrapper, .font-30 .item-wrapper input { font-size: 30px; }
+.font-36, .font-36 .item-wrapper, .font-36 .item-wrapper input { font-size: 36px; }
+.font-48, .font-48 .item-wrapper, .font-48 .item-wrapper input { font-size: 48px; }
+.font-60, .font-60 .item-wrapper, .font-60 .item-wrapper input { font-size: 60px; }
+
+#resume .authed-item { min-height: 1.25em; }
+
+.row-of-1 .item, .row-of-1 input { width: 100%; }
+.row-of-2 .item, .row-of-2 input { width: 50%; }
+.row-of-3 .item, .row-of-3 input{ width: 33.3%; }
+.row-of-4 .item, .row-of-4 input { width: 25%; }
+.row-of-5 .item, .row-of-5 input { width: 20%; }
+.row-of-6 .item, .row-of-6 input { width: 16.6%; }
+
+.resume-button-list {
+	list-style-type: none;
+	padding-top: .25em;	
+	margin-right: -1.25em;
+	text-align: right;
+}
+
+.resume-button-list li {
+	display: inline;
+	margin-left: -.5em;
+}
+
+.resume-button-list a {
+	font-size: 1.25em;
+	display: inline-block;
+	color: black; 
+}
+
+.resume-button {
+	width: 11em;
+}
+
+.dragging .edit-trigger, 
+.dragging .chunk .drag-trigger { display: none; }
+.dragging>div>.draggable { 
+	border: 1px solid black; 
+	margin: 5px;
+	padding: 5px;
+	cursor: move;
+}
+
+.dragging>div>.draggable:hover {
+	background: rgba(0, 0, 0, .2);
+}
+
+.edit-pane { font-size: 12px; }
+.dragging .edit-pane .drag-trigger { color: blue; }

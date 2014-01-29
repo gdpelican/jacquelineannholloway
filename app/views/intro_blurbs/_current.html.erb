@@ -1,0 +1,15 @@
+<% blurbs.each do |blurb| %>
+	<%= render layout: 'intro_blurbs/show' do %>
+		<%= image_tag blurb.picture.url(:tiny), :class => 'welcome-circle border' %>
+		<%= content_tag :h2, blurb.name, class: 'primary' %>
+		<%= content_tag :div, production_timespan(blurb), class: 'timespan' %>
+		<%= content_tag :p, blurb.blurb %>
+		<%= content_tag :p do %>
+			<%= link_to 'Buy tickets', blurb.ticket_link, target: '_blank' if blurb.ticket_link.present? %>
+			<%= content_tag :span, ' | ' if blurb.ticket_link.present? && blurb.info_link.present? %>
+			<%= link_to 'More info', blurb.info_link, target: '_blank' if blurb.info_link.present? %>
+		<% end %>
+	<% end %>
+<% end %>
+
+<%= render partial: 'intro_blurbs/current_form' if @authed %>

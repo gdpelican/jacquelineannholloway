@@ -1,0 +1,8 @@
+<% @productions.each do |production| %>
+  <%= render :partial => 'preview', :locals => { :production => production } %>
+  <div class="production-links clear">
+    <%= link_to 'Edit', edit_production_path(production) %> |
+    <%= link_to 'Show', production_path(production) %>
+  </div>
+  <hr />
+<% end %>

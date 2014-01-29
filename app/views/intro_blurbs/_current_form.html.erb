@@ -1,0 +1,4 @@
+<%= semantic_form_for @config, url: site_configuration_path, class: 'primary' do |f| %>
+	<%= f.input :upcoming_weeks, label: 'Weeks to check for upcoming productions: ' %>
+    <%= f.action :submit, label: 'Save', :button_html => { class: 'ui-button faded-medium' } %>
+<% end %>

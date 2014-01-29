@@ -1,0 +1,35 @@
+#about {
+	margin-top: -1em;
+	padding-left: 3em;
+}
+
+#about .about-block {
+	padding-top: .5em;
+}
+
+#welcome, #current {
+	width: 85%;
+	display: table;
+	overflow: auto;
+}
+
+#welcome h1, #current h1 {
+	padding-bottom: .5em;
+}
+
+#current h2 { 
+	font-size: 1.25em; 
+	margin: 0; 
+	padding-top: .5em;
+}
+#current .timespan {
+	font-size: .85em;
+	font-weight: bold;
+}
+#current p {
+	margin: .25em 0;
+}
+
+#getInTouch {
+	padding-bottom: 5em;
+}

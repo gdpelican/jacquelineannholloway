@@ -1,0 +1,24 @@
+<style>
+	h1, a, .admin-form label, .primary { color: <%= @config.site_primary %>; }
+	
+	.background,
+	.faded-light,
+	.faded-medium,
+	.faded-heavy,
+	.background-after:after,
+	.background-before:before,
+	.jspDrag { 				background: <%= @config.site_primary %>; }
+	
+	.border,
+	.border:before,
+	.border:after { 		border-color: <%= @config.site_primary %>; }
+	
+	.foreground,
+	.foreground>a,
+	.foreground>li>a { 		color: <%= @config.site_foreground %>; }
+	
+	.faded-light { 			background: rgba(<%= @config.site_primary_rgb %>, .3); }
+	.faded-medium { 		background: rgba(<%= @config.site_primary_rgb %>, .5); }
+	.faded-heavy { 			background: rgba(<%= @config.site_primary_rgb %>, .8); }
+	  
+</style>

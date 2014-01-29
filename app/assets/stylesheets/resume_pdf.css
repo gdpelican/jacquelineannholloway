@@ -1,0 +1,29 @@
+
+table { 
+	width: 100%;
+	font-size: .6em; 
+}
+
+tbody tr:last-child td { padding-bottom: 1em; }
+	
+.bold { font-weight: bold; }
+.italic { font-style: italic; }
+.underline { text-decoration: underline; }
+
+.align-left { text-align: left; }
+.align-right { text-align: right; }
+.align-center { text-align: center; }
+	
+.font-9  { font-size: 9px; }
+.font-10 { font-size: 10px; }
+.font-11 { font-size: 11px; }
+.font-12 { font-size: 12px; }
+.font-14 { font-size: 13px; }
+.font-16 { font-size: 16px; }
+.font-18 { font-size: 18px; }
+.font-20 { font-size: 20px; }
+.font-24 { font-size: 24px; }
+.font-30 { font-size: 30px; }
+.font-36 { font-size: 36px; }
+.font-48 { font-size: 48px; }
+.font-60 { font-size: 60px; }

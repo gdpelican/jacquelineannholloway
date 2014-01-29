@@ -1,0 +1,77 @@
+.calendar {
+    position: absolute;
+    left: 2em;
+    z-index: 5;
+    background: rgba(150, 150, 150, .3);
+    text-align: left;
+    border-radius: 1em 1em 0 0;
+}
+
+.calendar .nav {   
+    list-style: none;
+    height: 2em;
+    margin: auto;
+    border-radius: .75em .75em 0 0;
+}
+
+.calendar-expanded .nav {
+    box-shadow: 0 1px 1px #444;
+}
+
+.calendar .nav li {
+    position: relative;
+    left: .75em;
+    top: .2em;
+    display: inline;
+    padding: 0 .1em;
+}
+
+.calendar .expander span {
+    padding-left: .5em;
+}
+
+.calendar .cal-nav i {
+    position: relative;
+}
+
+.calendar .expander span,
+.calendar .cal-year span,
+.calendar .cal-month span {
+    font-family: CalendarHeader;
+    font-size: 1.5em;
+}
+
+.calendar .nav a {
+    text-decoration: none;
+}
+
+.calendar .calendar-table {
+   float: left; 
+   height: 12em;
+}
+
+.calendar td {
+    padding: .2em .45em;
+    text-align: right;
+    text-shadow: 1px 1px 0 black;
+    border-radius: 1em 1em 0;
+}
+
+.calendar td:not(.has-event) {
+	background: rgba(255,255,255,.3);
+}
+
+.calendar .day-name,
+.calendar td a {
+    background: transparent;
+}
+
+.calendar td a {
+	display: block;
+	width: 100%;
+}
+
+.expander a {
+    position: relative;
+    bottom: .1em;
+}

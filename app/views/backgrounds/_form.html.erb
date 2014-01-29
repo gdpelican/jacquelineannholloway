@@ -1,0 +1,20 @@
+<%= semantic_form_for @background, html: { class: 'admin-form' } do |f| %>
+  <% if @background.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@background.errors.count, "error") %> prohibited this picture from being saved:</h2>
+
+      <ul>
+      <% @picture.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= image_tag @background.picture.url(:thumb) unless new_form %>  
+  <%= f.input :slide_title, as: :select, collection: Slide.all_titles, label: 'Location: ' if new_form %>
+  <%= f.input :picture, as: :file, label: 'File to upload: ' %>
+  <%= f.input :picture_alt, :label => 'Alt: ' %>
+  <%= f.input :blurb, as: :text, label: 'Blurb: ' %>
+  <%= f.action :submit %>
+<% end %>

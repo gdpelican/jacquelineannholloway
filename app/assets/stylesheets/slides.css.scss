@@ -1,0 +1,330 @@
+// Place all the styles related to the slides controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+    font-family: CalendarHeader;
+    src: url('EqualSans_Demo.ttf');
+    font-weight:400;
+}
+
+.flash-notice, 
+.flash-error {
+  position: absolute;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 2em;
+  top: 0;
+  font-weight: bold;
+  z-index: 100000;
+}
+
+.flash-error {
+  background: #A00;
+  background: rgba(150, 0, 0, .5);
+}
+
+.flash-notice {
+  background: #0A0;
+  background: rgba(0, 150, 0, .5);
+}
+
+body, ul, li, div {
+    margin: 0;
+    padding: 0;
+}
+
+.no-overflow {
+    overflow: hidden;
+}
+
+.jspDrag {
+  box-shadow: -1px 1px 4px black;
+}
+
+h1, a {
+  text-decoration: none;
+}
+
+h1 {
+  text-shadow: -1px 2px 2px black;
+}
+
+/*
+a:visited, a:hover {
+  color: $background-dark;
+}*/
+
+#loggedin {
+    text-align: center;
+    position: relative;
+    bottom: 1.9em;
+    text-shadow: 1px 1px 1px black;
+}
+
+.bold-font {
+    font-family: Header;
+}
+
+
+.calendar {
+    border: 2px solid;
+}
+
+/*
+.jspDrag {
+    background: $background-faded-heavy !important;
+}*/
+
+.down-shadow {
+    box-shadow: 0 0 5px 1px black;
+}
+
+.header {
+    position: absolute;
+    height: 2.5em;
+    width: 100%;
+    z-index: 1;
+}
+
+.header-picture img {
+    width: 13em;
+    height: 20em;
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+    box-shadow: -2px 0 5px black;
+}
+
+.header-picture {
+    position: absolute;
+    left: 2em;
+    padding: 0 1.5em 1em !important;
+}
+
+.header-curve:before,
+.header-curve:after {
+    font-size: 1em !important;
+    content: " ";
+    display: block;
+    background: transparent;
+    height: 1.5em;
+    width: 1.5em;
+    position: absolute;
+    top: 1.5em;
+    border-top: 1em solid white;
+}
+
+.header-curve:before {
+    border-top-right-radius: 2em;
+    border-right: 1em solid white;
+    left: -1.5em;
+}
+
+.header-curve:after {
+    border-top-left-radius: 2em;
+    border-left: 1em solid white;
+    right: -1.5em;
+}
+
+.footer-curve:before,
+.footer-curve:after {
+    font-size: 1em !important;
+    content: " ";
+    display: block;
+    background: transparent;
+    height: 1em;
+    width: 1em;
+    position: absolute;
+    top: .85em;
+    border-bottom: 1em solid;
+    z-index: -1;
+}
+
+.footer-curve:before {
+    border-bottom-right-radius: 1.75em;
+    border-right: 1em solid;
+    left: -1em;
+}
+
+.drop-shadow {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: inherit;
+    z-index: -1;
+    box-shadow: -2px 0 5px 1px black;
+}
+
+.footer .drop-shadow:after {
+    height: 1em;
+    bottom: -1px;
+}
+.header .drop-shadow:after {
+    height: 2.5em;
+    top: 0;
+}
+
+.drop-shadow:after {
+    content: " ";
+    width: 125%;
+    height: 2.5em;
+    position: absolute;
+    left: -10px;
+}
+
+.header-name {
+    position: absolute;
+    right: 1em;
+    line-height: 3em;
+    height: 3em;
+}
+
+.header-name-text {
+    padding-top: 1em;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow: -2px 2px 2px black;
+}
+
+.rounded {
+    border-radius: 1em;
+    padding: 1em;
+}
+
+.content {
+    width: 5000em;
+    overflow: hidden;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    height: 2em;
+    width: 100%;
+    text-align: right;
+    
+    .slide-picture-blurb {
+      display: none;
+      z-index:0;
+      position: absolute;
+      right: 2em;
+      bottom: 2em;
+      width: 23em;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      padding: .5em;
+      border-radius: 1em 1em 0 0;
+      
+      .prev-slide-trigger { float: left; }
+      .next-slide-trigger { float: right }
+    }
+    .slide-picture-blurb:after {
+      content: ' ';
+      width: 27em;
+      height: 2em;
+      display: block;
+      position: absolute;
+      bottom: -2em;
+      right: -2em;
+    }
+}
+
+.slide-nav {
+    width: 100%;
+    list-style: none;
+    position: relative;
+    right: 2em;
+    
+    .slide-li {
+      display: inline;
+      padding: .5em 1em;
+      position: relative;
+      bottom: 1em;
+      .slide-anchor { text-decoration: none; }
+    }
+    
+    .selected { font-weight: bold; }
+}
+
+.slide-container {
+    position: relative;
+}
+
+.slide {
+    position: relative;
+    float: left;
+}
+
+.slide-content {
+    margin: 1em 15em 10em 15em;
+    padding: 3em 1em 1em 4em;
+    background: white;
+    background: rgba(255,255,255,.5);
+    box-shadow: 0 0 7em 5em rgba(255,255,255,.5);
+    overflow-x: visible;
+    overflow-y: auto;
+}
+
+.slide-content>div {
+    margin: 2em 0;
+    padding-bottom: 5em;
+}
+
+.slide-image,
+.slide-image>div,
+.slide-image>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide-image {
+    z-index: -1;
+}
+
+.ie-opacity-40 {
+    width: 100%;
+    filter: alpha(opacity=40);
+}
+
+.ie-opacity-50 {
+    width: 100%;
+    filter: alpha(opacity=0);
+}
+
+#login {
+  margin: auto;
+  padding: 5em;
+}
+
+  
+.ui-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: block;
+    padding: .5em;
+    text-align: center;
+    box-shadow: inset 0 0 4px white;
+    margin-top: .5em;
+}
+
+.background-trigger,
+.background-edit-trigger {
+  position: absolute;
+  top: 3.7em;
+  font-size: 1.35em;
+}
+
+.background-trigger { right: 1em; }
+.background-edit-trigger { right: 3em; }
+
+.show-background-trigger,
+.edit-background-trigger { text-shadow: -1px 1px 2px black, 1px -1px 0px black, 1px 1px 0px black, -1px -1px 0px black; }
+.hide-background-trigger { text-shadow: -1px 1px 2px #CCC, 1px -1px 0px #CCC, 1px 1px 0px #CCC, -1px -1px 0px #CCC; }

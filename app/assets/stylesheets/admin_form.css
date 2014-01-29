@@ -1,0 +1,79 @@
+
+.admin-form {
+	background: transparent !important;
+}
+
+.admin-form li {
+	list-style-type: none;
+	padding-bottom: 1.5em;
+	clear: both;
+	display: inline
+}
+
+.admin-form label {
+	text-shadow: -1px 1px 1px #444;
+	font-weight: bold;
+	display: block;
+}
+
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+	display: block;
+	width: 30em;
+	margin-top: .5em;
+}
+
+.admin-form .nested-fields input,
+.admin-form .nested-fields textarea,
+.admin-form .nested-fields select {
+	width: 13em;
+}
+
+.admin-form .nested-fields ol {
+	padding-left: 0;
+}
+
+.admin-form textarea {
+	height: 15em;	
+}
+
+.admin-form input[type=submit] {
+	width: auto;
+}
+
+.admin-form input[readonly=readonly],
+.admin-form input[disabled=disabled],
+.admin-form textarea[readonly=readonly],
+.admin-form select[disabled=disabled] {
+	background: rgba(255, 255, 255, .5);
+	box-shadow: inset 0 0 3px black;
+	padding: .5em;
+	border: 0;
+}
+
+.admin-form .links a {
+	float: left;
+	padding: 1em;
+}
+
+.admin-form .datepicker input {
+	width: 11em;
+	display: inline;
+}
+
+.admin-form #production_picture_input {
+	float: left;
+}
+
+.admin-form #production_picture_input input {
+	width: 22.75em;
+}
+
+.admin-form #production_description_input> label,
+.admin-form .input_action>input { clear: both; }
+.admin-form .hidden-fields { display: none; }
+.admin-form .date-fields input.datepicker { width: 9em !important; }
+.admin-form .date-fields input.timepicker { width: 4em !important; }
+.admin-form .date-fields .picker li { padding: 0; display: block; }
+.admin-form .remove_fields { position: relative; top: .5em; width: auto; }

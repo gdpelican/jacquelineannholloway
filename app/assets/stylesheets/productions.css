@@ -1,0 +1,233 @@
+#event-slideout {
+    float: left;
+    background: rgba(255, 255, 255, .6);
+}
+
+body {
+	background: url('/assets/stagebg.jpg') repeat;
+}
+
+#admin-div {
+	width: 50em;
+	margin: auto;
+	box-shadow: 0 0 5px black;
+	padding: 2em;
+	background: rgba(255, 255, 255, .5);
+}
+
+#production-page {
+    width: 50em;
+}
+
+#production-page .production-name {
+    position: absolute;
+    right: .35em;
+    top: 0em;
+    padding-top: .1em;
+    font-size: 1.8em;
+    line-height: .8em;
+    text-shadow: -1px 1px 1px black;
+}
+
+#production-page .production-close {
+    font-size: .5em;
+    position: relative;
+    bottom: .35em;
+    padding-left: 2em;
+}
+
+#production-page .production-close i {
+    cursor: pointer;
+}
+
+#production-page .production-container {
+    overflow: auto;
+    width: 35em;
+}
+
+#production-page .production-options {
+    width: 4em;
+}
+
+#production-page .production-picture {
+    left: 39em;
+    padding: 0;
+    box-shadow: -1px 0 2px black;
+}
+
+#production-page .production-picture img {
+    min-height: 13em;
+}
+
+#production-page .production-panel {
+    float: left;
+    outline: none;
+    height: 100%;
+    height: 13em;
+    text-shadow: -1px 1px 0 black;
+}
+
+#production-page .production-pane {
+    padding: .75em;   
+}
+
+#production-page .production-info {
+    position: absolute;
+    right: 12em;
+    padding:  .25em .5em;
+    bottom: 0;
+	border-radius: .5em .5em 0 0;
+	z-index: 50;	
+	text-shadow: -1px 1px 0 black;
+}
+
+#production-page .hidden-pane {
+    display: none;
+}
+
+#production-page .production-map #map {
+    margin: -.4em;
+    height: 12.3em;
+}
+
+#production-page .production-map .venue-div {
+    position: absolute;
+    right: .5em;
+    padding:  .25em .5em;
+}
+
+#production-page .production-map .venue-name {
+    bottom: 1.85em;
+    border-radius: .5em .5em 0 0;
+}
+
+
+#production-page .production-map .venue-address {
+    bottom: 0;
+    border-radius: .5em 0 0 0;
+}
+
+#production-page .production-map a {
+    background: transparent;
+}
+
+#production-page .production-options ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#production-page .production-options ul li {
+    width: 3em;
+    height: 3.33em;
+    padding: .5em;
+    line-height: 3.33em;
+    text-align: center;
+    text-shadow: -1px 1px 2px black;
+}
+
+#production-page .production-option.faded-light {
+	box-shadow: inset 0 0 4px;
+}
+
+#production-page .production-picture,
+#production-page .production-picture img {
+    width: 11em;
+    overflow: hidden;
+}
+
+#production-page #latlng {
+    display: none;
+}
+
+.footer .preview>.production-div {
+    position: absolute;
+    margin-left: 0;
+    left: 2em;
+    border-radius: 1em 1em 0 0;
+    background: rgba(200,200,200,.5) !important;
+}
+
+#production-admin .preview>.production-div {
+	width: 50em;
+}
+
+#production-admin .preview .production-right {
+	width: 45em;
+}
+
+#production-admin .production-links {
+	text-align: center;
+}
+
+.footer .preview .production-name {
+	border-radius: .5em .5em 0 0;
+}
+
+.preview>.production-div {
+    float: left;
+    margin: 1em;
+    border: 2px solid;
+    width: 20em;
+    bottom: 1em;
+    background: #CCC !important;
+    box-shadow: inset 0 0 25px #873;
+    text-align: center;
+}
+
+.preview .production-left {
+    float: left;
+}
+
+.preview .production-right {
+    float: right;
+    width: 15em;
+}
+
+.preview .production-picture img {
+    max-width: 5em;
+}
+
+.preview .production-picture {
+    float: left;
+    margin-bottom: -.3em;
+}
+
+.preview .production-description {
+    clear: both;
+    padding-bottom: 1em;
+}
+
+.preview .production-name {
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #444;
+}
+
+.preview .production-dates {
+    font-size: .8em;
+    color: #DDD;
+    text-shadow: 1px 1px 0 #444;
+}
+
+.preview .production-description {
+    text-shadow: 1px 1px 0 #444;
+}
+
+.nested-fields {
+    float: left;
+}
+
+.input_action, .clear {
+    clear: both;
+}
+
+.edit-production-trigger,
+.new-production-trigger {
+	position: absolute;
+	right: 0;
+	width: 11em !important;
+	padding: .2em 0 !important;
+}
+
+.edit-production-trigger { bottom: 0; }
+.new-production-trigger { bottom: 1.75em; }

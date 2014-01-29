@@ -1,0 +1,12 @@
+<div class="welcome-row">
+	<div class="welcome-cell">
+		<%= yield %>
+	</div>
+	<% if @authed && defined? id %>
+		<div class="authed-links">
+			<%= link_to font_icon('pencil') + '  Edit', edit_intro_blurb_path(id), class: 'ui-button faded-medium' %>
+			<%= link_to font_icon('trash') + '  Destroy', intro_blurb_path(id), class: 'ui-button faded-medium', method: :delete %>
+		</div>
+	<% end %>
+</div>
+<div class="spacer"></div>

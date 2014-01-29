@@ -1,0 +1,32 @@
+.contact_form {
+	li { 
+		list-style-type: none;
+		color: black;
+		text-shadow: 1px 1px 1px #CCC;
+	}
+	
+	.input {
+		label {
+			display: inline-block;
+			width: 9em;
+			padding-top: 1.5em;
+		}
+		label[for=contact_form_message] { vertical-align: top; }
+		input, textarea {
+			display: inline;
+		  	background: rgba(255,255,255,.2);
+		  	border: none;
+		  	box-shadow: 0 0 15px rgba(255,255,255,.5);
+		  	width: 27em;
+		  	margin: 1em 2em;
+		  	padding: .5em;
+		  	outline: 0px;
+		    text-shadow: 1px 1px 1px #CCC;
+		}
+	}
+	
+	.button_action { 
+		margin-left: 35em; 
+		button { width: 5em; }
+	}		
+}

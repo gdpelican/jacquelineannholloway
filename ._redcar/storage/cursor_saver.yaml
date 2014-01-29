@@ -1,0 +1,12 @@
+--- 
+cursor_positions: 
+  - :path: db/seeds.rb
+    :cursor_offset: 0
+    :timestamp: 2012-10-26 23:16:31.503000 -04:00
+  - :path: db/development.sqlite3
+    :cursor_offset: 0
+    :timestamp: 2013-03-16 14:50:34.365000 -04:00
+  - :path: db/schema.rb
+    :cursor_offset: 0
+    :timestamp: 2012-11-23 23:03:19.703000 -05:00
+files_to_retain: 0

@@ -1,0 +1,10 @@
+<% tag_name = pdf_tag_name(chunk.type) %>
+<<%= tag_name %> <%= pdf_col_span(chunk, lcm) %> class="<%= "#{chunk.type} #{chunk.styles rescue ''}" %>">
+	<% if chunk.type == :item %>
+		<%= chunk.text %>
+	<% else %>
+		<% chunk.children.each do |child| %>
+			<%= render partial: 'resume/pdf_chunk', locals: { chunk: child, lcm: lcm } %>
+		<% end %>
+	<% end %>
+</<%= tag_name %>>

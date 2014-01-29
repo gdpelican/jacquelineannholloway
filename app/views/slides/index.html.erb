@@ -1,0 +1,42 @@
+<div class="header down-shadow background foreground border">
+  <div class="header-picture rounded header-curve background border">
+    <div class="drop-shadow background-before background-after"></div>
+    <%= image_tag @config.profile_picture.url %>
+    <%= render partial: 'site_configuration/form' if @authed %>
+  </div>
+  <div class="header-name rounded header-curve background border">
+    <div class="drop-shadow background-before background-after"></div>
+    <span class="header-name-text">Jacqueline Ann Holloway</span>
+    <% if @authed %><div id="loggedin">(admin mode)</div><% end %>
+    <%= link_to font_icon('camera'), 'javascript:void(0)', title: 'Check out the background image!', class: 'background-trigger show-background-trigger foreground'%>
+ 	<%= link_to font_icon('picture'), '/backgrounds/target/edit', title: 'Edit background image', class: 'background-edit-trigger edit-background-trigger foreground' if @authed %>
+  </div>
+  <div class="socials">
+    <%= render partial: 'socials/index' %>
+  </div>
+</div>
+
+<div class="content">
+  <div class="slide-container">
+    <% @slides.each do |slide| %>
+        <%= render partial: 'slide', locals: { slide: slide } %>
+    <% end %>
+  </div>
+</div>
+
+<div class="footer background down-shadow">
+  <%= render partial: 'productions/preview', locals: { production: @current} if @current%>
+  
+  <div class="calendar border">
+    <%= render partial: 'calendar/index' %>
+  </div>
+  
+  <div class="slide-picture-blurb background-after">
+  	<%= render partial: 'slides/caption', locals: { slide: @slides.first } %>
+  </div>
+  <ul class="slide-nav">
+	  <% @slides.each do |slide| %>
+	    <li class="slide-li rounded background"><div class="drop-shadow"></div><a class="slide-anchor foreground" rel="<%= slide.index %>" data-caption="<%= slide.background.blurb %>" data-background="<%= slide.background.id %>" href="javascript:;"><%= slide.title %></a></li>
+	  <% end %>
+  </ul>
+</div>

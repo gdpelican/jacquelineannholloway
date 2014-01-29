@@ -1,0 +1,62 @@
+<% readonly ||= false %>
+<%= semantic_form_for @production, html: { class: 'admin-form' } do |f| %>
+  <% if @production.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@production.errors.count, "error") %> prohibited this production from being saved:</h2>
+
+      <ul>
+      <% @production.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :name, 
+              :label => 'Production name: ', 
+              :input_html => { :readonly => readonly } %>
+  <%= f.input :blurb,
+              :label => 'Blurb', 
+              :input_html => { :readonly => readonly } %>
+  <% if !readonly %>
+    <%= f.input :picture, 
+                :label => 'Production photo', 
+                :input_html => { :readonly => readonly } %>
+  <% end %>
+  <%= image_tag f.object.picture.url(:tiny) %>
+  <%= f.input :description, 
+              :as => :text, 
+              :label => 'Description', 
+              :input_html => { 
+                :rows => 5, 
+                :readonly => readonly } %>
+  <%= f.input :ticket_link,
+  			  :label => 'Ticket link',
+  			  :input_html => { :readonly => readonly } %>	
+  <%= f.input :info_link,
+  			  :label => 'More Info link',
+  			  :input_html => { :readonly => readonly } %>	
+  <%= f.input :duration, 
+              :label => 'Production duration (in mins)', 
+              :input_html => { :readonly => readonly } %>
+  <div id="events">
+    <%= f.semantic_fields_for :events do |event| %>
+      <%= render :partial => 'events/form', 
+                 :locals => { 
+                   :f => event, 
+                   :readonly => readonly } %>
+    <% end %>
+    <% if !readonly %>
+      <div class="links">
+        <%= link_to_add_association font_icon('asterisk') + ' Add Event', f, :events, { class: 'ui-button faded-medium clear', partial: 'events/form' } %>
+      </div>
+    <% end %>
+  </div>
+  <% if !readonly %>
+    <%= f.action :submit, 
+                 :label => 'Submit',
+                 :button_html => { 
+                   :alt => 'Submit', 
+                   :title => 'Submit' } %>
+  <% end %>
+<% end %>

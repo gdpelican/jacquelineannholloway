@@ -1,0 +1,20 @@
+<% readonly ||= false %>
+<div class="nested-fields">
+    <%= f.inputs do %>
+      <%= toggle_trigger(font_icon('random'), '.inputs', '.hidden-fields, .venue-fields', { title: 'Add a new venue', alt_title: 'Use an existing venue', class: 'float-right' }) unless readonly %>
+      <div class="venue-fields">
+	      <%= f.input :venue, collection: @venues, input_html: { disabled: readonly } %>
+      </div>
+      <div class="hidden-fields">
+	      <%= f.input :venue_name, input_html: { readonly: readonly } %>
+	      <%= f.input :venue_address, input_html: { readonly: readonly }%>
+      </div>
+      <div class="date-fields">
+      	<%= f.input :date, input_html: { readonly: readonly, class: "#{'datepicker-on' unless readonly} datepicker float-left" }, label: false %>
+      	<%= f.input :time, input_html: { readonly: readonly, class: "#{'timepicker-on' unless readonly} timepicker float-left" }, label: false %>
+      </div>
+      <% if !readonly %>
+        <%= link_to_remove_association font_icon('trash') + ' Remove Event', f, class: 'ui-button faded-medium clear' %>
+      <% end %>
+    <% end %>
+</div>

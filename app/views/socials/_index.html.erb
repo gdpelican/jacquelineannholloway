@@ -1,0 +1,5 @@
+<ul class="social-list">
+<% @socials.each do |social| %>
+  <li class="social-item background foreground norm-shape"><%= render :partial => 'socials/show', :locals => {:social => social} %></li>
+<% end %>
+</ul>

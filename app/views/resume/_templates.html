@@ -1,0 +1,92 @@
+<script id="resumeTemplate" type="text/html">
+	<div data-bind="attr: { id: $data.identifier(), class: $data.css_class(), 'data-id': $data.id }">
+		<!-- ko ifnot: destroyed -->
+  		<!-- Resume Buttons -->
+  		<ul class="resume-button-list">
+  			<!-- ko if: $data.authed -->
+  			<li data-bind="if: authed, visible: children().length > 1">
+		  		<a data-bind="event: { click: toggleDrag }, attr: { title: 'Move ' + type }" href="javascript:;" title="Rearrange resume sections" class="drag-trigger"><i class="icon-move"></i></a>	
+  			</li>
+  			<!-- /ko -->
+  			<li>
+  				<a data-bind="attr: { href: $data.exportLink() }" class="export-trigger" title="Export to pdf"><i class="icon-file"></i></a>
+  			</li>
+  		</ul>
+					
+		<!-- Display children -->
+		<div data-bind="sortable: { template: $data.template(), data: $data.children, isEnabled: dragging }"></div>	
+		
+		<!-- Resume panel -->
+			<!-- ko if: $data.authed -->
+			<ul class="resume-options">
+				<li>
+					<a data-bind="event: { click: toggleActive }, text: 'Resume is ' + (active() ? 'active' : 'inactive')" href="javascript:;" class="resume-button ui-button faded-medium"></a>
+					<label data-bind="text: '(' + (active() ? 'visible' : 'invisible') + ' to the public)'"></label>
+				</li>
+				<li>
+					<a data-bind="event: { click: append }" href="javascript:;" class="resume-button ui-button faded-medium"><i class="icon-asterisk"></i> Add New Section</a>
+					<span>(<select data-bind="options: $data.rowSizes, value: $data.rowSizeSelectValue"></select> columns wide)</span>
+				</li>
+			    <li>
+			    	<a data-bind="event: { click: save }" href="javascript:;" class="resume-button ui-button faded-medium"><i class="icon-save"></i> Save changes</a>
+			    </li>
+			    <li>
+			    	<a data-bind="event: { click: destroy }" href="javascript:;" class="resume-button ui-button faded-medium"><i class="icon-trash"></i> Destroy resume</a>
+			    </li>
+			</ul>
+			<!-- /ko -->
+		<!-- /ko -->
+		<!-- ko if: destroyed -->
+		<div class="destroyed">This resume has been destroyed</div>
+		<!-- /ko -->
+	</div>	
+</script>
+
+<script id="chunkTemplate" type="text/html">	
+	<div data-bind="attr: { id: $data.identifier(), class: $data.css_class(), 'data-id': $data.id }">
+		<!-- Edit nav -->
+		<!-- ko if: $data.editable() -->
+		<div data-bind="attr: { class: $data.edit_class() }">
+			<a data-bind="event: { click: toggleEdit }, visible: function() { showEditToggle($parent) }, attr: { title: 'Edit ' + type }" href="javascript:;", class="edit-trigger"><i class="icon-pencil"></i></a>
+			<a data-bind="if: $data.type == 'section', visible: $data.children().length > 1, event: { click: toggleDrag }, attr: { title: 'Move ' + type }" href="javascript:;", class="drag-trigger"><i class="icon-move"></i></a>
+		</div>
+		<!-- /ko -->
+					
+		<!-- Display children -->
+		<div data-bind="sortable: { template: $data.template(), data: $data.children, isEnabled: dragging, allowDrop: true }"></div>
+		
+		<!-- Edit panel -->
+		<!-- ko if: $data.editable -->
+		<div data-bind="visible: $data.showEdit()" class="edit-options-panel">
+		  <span class="delete edit-span">
+		  	<a data-bind="event: { click: destroy }, text: 'Remove ' + $data.type, attr: { title: 'Remove ' + $data.type }" href="javascript:;" class="destroy-trigger"></a>
+		  </span>
+		  <span data-bind="if: $data.type == 'section'">
+		  	<a data-bind="event: { click: $parent.append }, text: 'New line', attr: { title: 'Add a new line' }" href="javascript:;" class="append-trigger"></a>
+		  </span>
+		  <span class="decoration edit-span">
+		  	<a data-bind="event: { click: editStyle }, attr: { class: hasStyle('bold') }" href="javascript:;" data-style="bold" title="Bold Text"><i class="icon-bold"></i></a>
+		  	<a data-bind="event: { click: editStyle }, attr: { class: hasStyle('italic') }" href="javascript:;" data-style="italic" title="Italic Text"><i class="icon-italic"></i></a>
+		  	<a data-bind="event: { click: editStyle }, attr: { class: hasStyle('underline') }" href="javascript:;" data-style="underline" title="Underline Text"><i class="icon-underline"></i></a>
+		  </span>
+		  <span class="align edit-span">
+		  	<a data-bind="event: { click: editStyle }, attr: { class: hasStyle('align-left') }" href="javascript:;" data-style="align-left" class="style-trigger" title="Align Left"><i class="icon-align-left"></i></a>
+		  	<a data-bind="event: { click: editStyle }, attr: { class: hasStyle('align-center') }" href="javascript:;" data-style="align-center" class="style-trigger" title="Align Center"><i class="icon-align-center"></i></a>
+		  	<a data-bind="event: { click: editStyle }, attr: { class: hasStyle('align-right') }" href="javascript:;" data-style="align-right" class="style-trigger" title="Align Right"><i class="icon-align-right"></i></a>
+		  </span>
+		  <span class="font edit-span">
+		    <span>Size: </span>
+		    <select data-bind="options: $data.fontSizes, value: $data.fontSize" class="font-size" name="font_size"></select>
+		  </span>
+		</div>
+		<!-- /ko -->
+	</div>
+</script>
+
+<script id="itemTemplate" type="text/html">
+	<!-- Display Item -->
+	<span data-bind="attr: { id: $data.identifier(), class: $data.css_class(), 'data-id': $data.id }">
+  		<span data-bind="event: { click: function(d, e) { toggleEditing(e, $parents) }, mouseover: function() { toggleHighlight($parents) }, mouseout: function() { toggleHighlight($parents) } }, visible: !$data.editing(), text: $data.text(), attr: { class: $data.item_class }"></span>
+  		<input data-bind="event: { focusout: function(d, e) { toggleEditing(e, $parents) } }, visible: $data.editing(), value: $data.text()" type="text" class="edit-item" />
+	</span>
+</script>

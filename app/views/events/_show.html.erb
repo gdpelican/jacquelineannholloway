@@ -1,0 +1,47 @@
+<div id="production-page">
+  <div class="production-div">
+    <div class="production-name foreground">
+      <%= event.production.name.upcase %>
+      <span class="production-close"><i class="icon-remove"></i></span>
+    </div>
+    <div class="production-options production-panel">
+      <ul>
+        <li class="production-option primary faded-light" rel="production-description" title="Description"><i class="icon-book icon-large foreground"></i></li>
+        <li class="production-option primary faded-light" rel="production-map" title="Location"><i class="icon-globe icon-large foreground"></i></li>
+        <li class="production-option primary faded-light" rel="production-times" title="Dates"><i class="icon-calendar icon-large foreground"></i></li>
+      </ul>
+    </div>
+    <% unless event.production.ticket_link.empty? && event.production.info_link.empty? %>
+		<div class="production-info production-pane production-description footer-curve border foreground background">
+	    	<%= link_to('Buy Tickets', event.production.ticket_link, :target => '_blank', :class => 'ticket-link') unless event.production.ticket_link.empty? %>
+	      	<%= ' | ' unless event.production.ticket_link.empty? %>
+	      	<%= link_to('More Info', event.production.info_link, :target => '_blank', :class => 'info-link') unless event.production.info_link.empty? %>
+	    </div>
+    <% end %>
+    <div class="production-container production-panel scroller foreground faded-medium">
+      <div class="production-pane production-description">
+      	<%= raw RedCloth.new(event.production.description).to_html %>
+      </div>
+      <div class="production-pane production-map">
+        <div id="map"></div>
+        <div class="venue-name venue-div footer-curve border background"><%= event.venue.name %></div>
+        <div class="venue-address venue-div footer-curve border background"><%= event.venue.address %></div>
+      </div>
+      <div class="production-pane production-times foreground">
+      	<% week = -1 %>
+        <% event.production.events.order(:event_date).each do |event| %>
+          <%= render partial: 'badge', locals: { event: event, prev_week: week } %>
+          <% week = event.event_date.strftime('%V') %>
+        <% end %>
+      </div>
+    </div>
+    <div class="production-picture production-panel">
+      <%= image_tag event.production.picture.url(:profile) %>
+      <%= link_to(font_icon('asterisk') + ' New Production', new_production_path, class: 'new-production-trigger ui-button faded-medium') if @authed %>
+      <%= link_to(font_icon('pencil') + ' Edit Production', edit_production_path(event.production), class: 'edit-production-trigger ui-button faded-medium') if @authed %>
+    </div>
+  </div>
+  <% if !event.nil? and !event.venue.latitude.nil? and !event.venue.longitude.nil? %>
+    <div id="latlng" class="hidden"><%= event.venue.latitude + ';' + event.venue.longitude %></div>
+  <% end %>
+</div>

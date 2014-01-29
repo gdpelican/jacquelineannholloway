@@ -1,0 +1,20 @@
+<h1>Get in touch</h1>
+<%= semantic_form_for @message, :url => contact_path do |f| %>
+  <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this production from being sent</h2>
+
+      <ul>
+      <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :name, :label => 'Name: ' %>
+  <%= f.input :email, :label => 'Email : ' %>
+  <%= f.input :message, :as => :text, :label => 'Message: ', :input_html => { :rows => 5 } %>
+  
+  <%= f.action :submit, :as => :button, :label => 'Send', button_html: { class: 'ui-button faded-medium' } %>
+<% end %>

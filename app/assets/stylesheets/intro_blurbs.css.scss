@@ -1,0 +1,70 @@
+#intro-blurb {
+  width: 55em;
+  margin: auto;
+}
+
+.welcome-row {
+  display: table-row;
+  padding: .5em 0;
+  position: relative;
+  
+  .ui-button { width: 5em; }
+}
+
+.spacer {
+  height: 2em;
+  width: 100%;
+  display: table-row;
+}
+
+.welcome-cell {
+  display: table-cell;
+  vertical-align: middle;
+  padding-right: 2em;
+  width: 100%;
+  color: black;
+  text-shadow: 1px 1px 1px #CCC;
+  
+  border-radius: 4em 1em 1em 4em; 
+  -moz-border-radius: 4em 1em 1em 4em;  
+  -webkit-border-radius: 4em 1em 1em 4em; 
+  
+  background: rgba(255, 255, 255, .2);
+  box-shadow: 0 0 15px rgba(255,255,255,.5)
+}
+
+.welcome-circle {
+  width: 7em;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  border: .5em solid;
+  box-shadow: -1px 2px 2px black;
+  float: left;
+  margin-right: 1em;
+}
+
+.authed-links {
+  padding-left: 1em;
+  width: 5em;
+  
+  .ui-trigger { margin: .25em 0; }
+}
+
+.new-blurb-trigger { 
+  width: 10em; margin: auto; 
+}
+
+.formtastic.intro_blurb {
+  label { display: none; }
+  #intro_blurb_text_input { 
+    float: left;
+    clear: none;
+    
+    textarea {
+      width: 35em;
+      height: 7em;
+      background: rgba(255,255,255,.25);
+      border: 0;
+    } 
+  }
+}

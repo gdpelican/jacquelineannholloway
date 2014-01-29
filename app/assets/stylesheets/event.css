@@ -1,0 +1,40 @@
+.event-badge {
+    width: 7em;
+    height: 7em;
+    text-align: center;
+    font-variant: small-caps;
+    box-shadow: 0 0 5px black;
+    float: left;
+    margin: 0 .5em .5em 0;
+    cursor: pointer;  
+    display: block;
+}
+
+.event-badge > span {
+	display: block;
+}
+
+.event-badge .day {
+    padding-top: .25em;
+    font-size: .85em;
+}
+
+.event-badge .date {
+    font-size: 2.5em;
+    font-weight: bold;
+    line-height: 1em;
+}
+
+.event-badge .month {
+    color: white;
+    line-height: 1.3em;
+    box-shadow: 0px 1px 1px black;
+}
+
+.event-badge .year {
+    font-size: .8em;
+}
+
+.event-badge.new-week {
+	clear: both;
+}

@@ -1,0 +1,34 @@
+	
+  <% calendar ||= @calendar %>  
+  <div class="calendar-div">
+
+    <ul class="nav drop-nav-shadow background foreground">
+      <li class="collapser"><%= link_to '<i class="icon-caret-down"></i>'.html_safe, 'javascript:;' %></li>
+      <li class="expander"><%= link_to '<i class="icon-caret-up"></i><span>See what\'s next!</span>'.html_safe, 'javascript:;' %></li>
+      <li class="cal-nav"><%= link_to '<i class="icon-backward"></i>'.html_safe, calendar_month_path(calendar.year-1, calendar.month), :remote => 'true' %></li>
+      <li class="cal-nav"><%= link_to '<i class="icon-caret-left"></i>'.html_safe, calendar_month_path(calendar.year, calendar.month-1), :remote => 'true' %></li>
+      <li class="cal-nav cal-month"><span><%= Date::ABBR_MONTHNAMES[calendar.month].upcase %></span></li>
+      <li class="cal-nav cal-year"><span><%= calendar.year.to_s %></span></li>
+      <li class="cal-nav"><%= link_to '<i class="icon-caret-right"></i>'.html_safe, calendar_month_path(calendar.year, calendar.month+1), :remote => 'true' %></li>
+      <li class="cal-nav"><%= link_to '<i class="icon-forward"></i>'.html_safe, calendar_month_path(calendar.year+1, calendar.month), :remote => 'true' %></li>
+    </ul>
+
+    <table class="calendar-table foreground faded-medium">
+      <% calendar.boxes.each do |week| %>
+      <tr>
+        <% week.each do |day| %>
+          <td id="<%=day['id']%>" class="<%=day['class']%>" title="<%=day['production-name']%>">
+            <% if day['production-link'] %>
+              <%= link_to day['content'], day['production-link'], remote: true %>
+            <% else %>
+              <%= day['content'] %>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+      <% end %>
+    </table>
+
+    <div id="event-slideout" class="border"></div>
+
+  </div>

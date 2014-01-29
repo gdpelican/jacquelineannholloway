@@ -1,0 +1,21 @@
+<ul class="resume-menu">
+	<% @resumes.each do |resume| %>
+		<li><a data-resume="<%= resume.id %>" class="resume-menu-link<%= ' inactive' unless resume.active %>" href="javascript:;"><%= resume.name %></a></li>
+	<% end %>
+	<% if @authed %>
+		<%= content_tag :li, '', class: 'new-resume-link' do %> 
+			<%= link_to(font_icon('plus'), 'javascript:;', title: 'Create a new resume') %>
+			<%= form_tag '/resume/new', method: :post, class: 'new-resume-form' do |form| %>
+					<%= text_field :name, :post %>
+					<%= submit_tag 'create', class: 'ui-button faded-medium' %>
+			<% end %>
+		<% end %>
+	<% end %>
+</ul>
+<div data-bind="template: { name: 'resumeTemplate', foreach: resumes }"></div>
+	
+<script>
+	$(document).ready(function() { 
+		Knockout.initializeViewModel(<%= raw @resume_json %>, <%= @authed.present? %>); 
+	});
+</script>

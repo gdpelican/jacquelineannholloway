@@ -1,0 +1,19 @@
+<%= semantic_form_for @social do |f| %>
+  <% if @social.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(f.errors.count, "error") %> prohibited this social from being saved:</h2>
+
+      <ul>
+      <% @social.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :link %>
+  <%= f.input :name %>
+  <%= f.input :icon_name %>
+  <%= f.input :icon, :as => :file, :label => 'File to upload: ' %>
+  <%= f.action :submit %>
+<% end %>

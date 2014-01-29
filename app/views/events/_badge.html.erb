@@ -1,0 +1,6 @@
+<a href="<%= event.production.ticket_link %>" class="event-badge faded-medium <%= 'new-week' if event.event_date.strftime('%V') != prev_week %>">
+    <span class="month background"><%= event.event_date.strftime('%A') %></span>
+    <span class="day"><%= event.event_date.strftime('%B') %></span>
+    <span class="date"><%= event.event_date.day %></span>
+    <span class="year"><%= event.event_date.strftime('%l:%M %P') %></span>
+</a>
