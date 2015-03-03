@@ -18,7 +18,10 @@ class Production < ActiveRecord::Base
      :styles => { :original => ["1024x1024", :jpeg], :thumb => ["250x250", :jpeg], :tiny => ["100x100#", :jpeg], :profile => ["200x170#", :jpeg] },
      :storage => :s3,
      :default_url => '/assets/missing.png',
-     :s3_credentials => "#{Rails.root}/config/s3.yml",
+     :s3_credentials => {
+       :access_key_id => ENV['S3_KEY'],
+       :secret_access_key => ENV['S3_SECRET']
+     },
      :path => "/:style/:id/:filename",
      :bucket => 'JaxHolloway-TEST'
   
